@@ -11,7 +11,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "NODE_ENV=production BABEL_ENV=production ./node_modules/.bin/webpack --config webpack.config.production.js"
+    "build": "NODE_ENV=production BABEL_ENV=production ./node_modules/.bin/webpack --config webpack.config.production.js && cp app/index.html dist/"
   },
   "dependencies": {
     "babel-runtime": "^6.3.19",
