@@ -1,5 +1,5 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var OfflinePlugin = require('offline-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -11,7 +11,7 @@ module.exports = {
   ],
   output: {
     path: __dirname,
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/static/',
   },
   resolve: {
@@ -21,15 +21,13 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new CopyWebpackPlugin([]),
     new OfflinePlugin({
       publicPath: '/static/',
       relativePaths: false,
       AppCache: {
         directory: '../appcache',
       },
-    }),
-    new ExtractTextPlugin('style.css', {
-      allChunks: true
     }),
   ],
   module: {
@@ -41,7 +39,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
+        loaders: ['style', 'css', 'sass']
       },
       {
         test: /\.(gif|png|jpg|jpeg\ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,

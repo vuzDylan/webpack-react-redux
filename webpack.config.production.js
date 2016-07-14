@@ -1,11 +1,12 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
   entry: {
-    js: './app/js/app.jsx',
+    main: './app/js/app.jsx',
     vendor: [
       'react',
       'react-dom',
@@ -17,7 +18,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist/static'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/static/',
   },
   resolve: {
@@ -36,7 +37,6 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: Infinity,
-      filename: 'vendor.bundle.js',
     }),
     new OfflinePlugin({
       publicPath: '/static/',
@@ -54,10 +54,11 @@ module.exports = {
       },
       sourceMap: false,
     }),
-    new ExtractTextPlugin('style.css', {
+    new ExtractTextPlugin('[name].bundle.css', {
       allChunks: true,
       sourceMap: false,
     }),
+    new CopyWebpackPlugin([]),
   ],
   module: {
     loaders: [
