@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var OfflinePlugin = require('offline-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -20,6 +21,13 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new OfflinePlugin({
+      publicPath: '/static/',
+      relativePaths: false,
+      AppCache: {
+        directory: '../appcache',
+      },
+    }),
     new ExtractTextPlugin('style.css', {
       allChunks: true
     }),

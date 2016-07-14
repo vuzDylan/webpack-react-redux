@@ -5,6 +5,8 @@ import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import store from './store';
 
+require('offline-plugin/runtime').install();
+
 window.onload = () => {
   ReactDOM.render(
     <Provider store={store}>
