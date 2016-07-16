@@ -11,7 +11,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "NODE_ENV=production BABEL_ENV=production ./node_modules/.bin/webpack --config webpack.config.production.js && cp app/index.html dist/"
+    "build": "NODE_ENV=production BABEL_ENV=production ./node_modules/.bin/webpack --config webpack.config.production.js",
+    "postbuild": "cp app/index.prod.html dist/index.html"
   },
   "dependencies": {
     "babel-runtime": "^6.3.19",
@@ -34,6 +35,7 @@
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "2.0.0-beta.1",
     "file-loader": "^0.9.0",
+    "json-loader": "^0.5.4",
     "node-sass": "^3.8.0",
     "offline-plugin": "^3.4.1",
     "react-transform-hmr": "^1.0.1",

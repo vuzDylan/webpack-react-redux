@@ -68,6 +68,10 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
+        test: /\.json$/,
+        loader: 'json-loader',
+      },
+      {
         test: /\.scss$/,
         loaders: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
       },
