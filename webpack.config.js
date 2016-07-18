@@ -1,3 +1,9 @@
+/*
+ * This config is used to start the dev server
+ * All files that are complied will be stored in memory
+ * CSS is inlined in the JS to make development faster
+ * If adding a new plugin make sure it know the publicPath is /static/
+ */
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 const webpack = require('webpack');
@@ -21,7 +27,9 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new CopyWebpackPlugin([]),
+    new CopyWebpackPlugin([
+      // add files you want copied here
+    ]),
     new OfflinePlugin({
       publicPath: '/static/',
       relativePaths: false,

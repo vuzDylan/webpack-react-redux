@@ -1,3 +1,9 @@
+/*
+ * This is the porduction webpack config
+ * This will build all files in there min version to the dist dir
+ * to run the application you must server the index.html and the static dir
+ * CSS files will be outputed as bundles just like the js files
+ */
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
@@ -58,7 +64,9 @@ module.exports = {
       allChunks: true,
       sourceMap: false,
     }),
-    new CopyWebpackPlugin([]),
+    new CopyWebpackPlugin([
+      // Add files that you would like copied here
+    ]),
   ],
   module: {
     loaders: [
