@@ -6,7 +6,6 @@
  */
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -43,13 +42,6 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: Infinity,
-    }),
-    new OfflinePlugin({
-      publicPath: '/static/',
-      relativePaths: false,
-      AppCache: {
-        directory: '../appcache',
-      },
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

@@ -5,7 +5,6 @@
  * If adding a new plugin make sure it know the publicPath is /static/
  */
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -30,13 +29,6 @@ module.exports = {
     new CopyWebpackPlugin([
       // add files you want copied here
     ]),
-    new OfflinePlugin({
-      publicPath: '/static/',
-      relativePaths: false,
-      AppCache: {
-        directory: '../appcache',
-      },
-    }),
   ],
   module: {
     loaders: [
