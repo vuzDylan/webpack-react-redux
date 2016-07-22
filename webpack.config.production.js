@@ -43,12 +43,18 @@ module.exports = {
       name: 'vendor',
       minChunks: Infinity,
     }),
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
+        screw_ie8: true,
         warnings: false,
+      },
+      mangle: {
+        screw_ie8: true,
       },
       output: {
         comments: false,
+        screw_ie8: true,
       },
       sourceMap: false,
     }),
