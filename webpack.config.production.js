@@ -27,7 +27,7 @@ module.exports = {
     publicPath: '/static/',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss'],
+    extensions: ['', '.js', '.jsx'],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -79,11 +79,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
+        loaders: ExtractTextPlugin.extract('style', 'css!resolve-url!sass'),
       },
       {
         test: /\.(gif|png|jpg|jpeg\ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file'
+        loader: 'url?limit=8192'
       },
     ],
   },

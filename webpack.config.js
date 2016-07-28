@@ -20,7 +20,7 @@ module.exports = {
     publicPath: '/static/',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss'],
+    extensions: ['', '.js', '.jsx'],
   },
   devtool: 'source-map',
   plugins: [
@@ -43,11 +43,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
+        loaders: ['style', 'css', 'resolve-url', 'sass']
       },
       {
         test: /\.(gif|png|jpg|jpeg\ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file'
+        loader: 'url?limit=8192'
       },
     ],
   },

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-require('../../scss/heading');
+require('../../scss/heading.scss');
 
 const Profile = () => (
   <div>
