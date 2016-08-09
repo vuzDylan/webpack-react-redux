@@ -23,9 +23,9 @@ module.exports = {
     ],
   },
   output: {
-    path: path.join(__dirname, 'dist/static'),
+    path: path.join(__dirname, 'dist', 'assets'),
     filename: '[name].bundle.js',
-    publicPath: '/static/',
+    publicPath: '/assets/',
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
