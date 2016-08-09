@@ -9,11 +9,22 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: [
-    'webpack-dev-server/client?http://localhost:5000',
-    'webpack/hot/dev-server',
-    './app/js/app.jsx',
-  ],
+  entry: {
+    main: [
+      './app/js/app.jsx',
+      'webpack/hot/dev-server',
+      'webpack-dev-server/client?http://localhost:5000',
+    ],
+    vendor: [
+      'react',
+      'react-dom',
+      'redux',
+      'redux-thunk',
+      'react-redux',
+      'react-router',
+      'bootstrap/dist/css/bootstrap.css',
+    ],
+  },
   output: {
     path: __dirname,
     filename: '[name].bundle.js',
@@ -42,11 +53,11 @@ module.exports = {
         loader: 'json-loader',
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         loaders: ['style', 'css', 'resolve-url', 'sass']
       },
       {
-        test: /\.(gif|png|jpg|jpeg\ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        test: /\.(gif|png|jpg|jpeg|ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
         loader: 'url?limit=8192'
       },
     ],

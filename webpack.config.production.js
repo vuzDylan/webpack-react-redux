@@ -18,7 +18,8 @@ module.exports = {
       'redux',
       'redux-thunk',
       'react-redux',
-      'react-router'
+      'react-router',
+      'bootstrap/dist/css/bootstrap.css',
     ],
   },
   output: {
@@ -34,10 +35,6 @@ module.exports = {
       'process.env': {
         'NODE_ENV': JSON.stringify('production'),
       },
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false,
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -78,11 +75,11 @@ module.exports = {
         loader: 'json-loader',
       },
       {
-        test: /\.scss$/,
-        loaders: ExtractTextPlugin.extract('style', 'css!resolve-url!sass'),
+        test: /\.s?css$/,
+        loader: ExtractTextPlugin.extract(['css', 'resolve-url', 'sass']),
       },
       {
-        test: /\.(gif|png|jpg|jpeg\ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        test: /\.(gif|png|jpg|jpeg|ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
         loader: 'url?limit=8192'
       },
     ],

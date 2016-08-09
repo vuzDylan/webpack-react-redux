@@ -1,13 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';
-
-require('../../scss/heading.scss');
 
 const Home = () => (
-  <div>
-    <p className="home">Home</p>
-    <Link to={'/profile'}>Profile</Link>
-  </div>
+  <div>Hello World</div>
 );
 
 export default Home;
