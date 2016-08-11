@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Home = () => (
-  <div>Hello World</div>
+    <div stlye={{color: 'red'}}>Hello World</div>
 );
 
 export default Home;
