@@ -6,4 +6,8 @@ const App = (props) => (
   </div>
 );
 
+App.propTypes = {
+  children: React.PropTypes.array,
+};
+
 export default App;

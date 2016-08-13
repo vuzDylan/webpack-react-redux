@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import routes from './routes';
 import { Provider } from 'react-redux';
-import store from './store';
-import { Router, useRouterHistory } from 'react-router'
-import { createHistory } from 'history'
-
+import { createHistory } from 'history'; // eslint-disable-line import/no-extraneous-dependencies
 import 'bootstrap/dist/css/bootstrap.css';
+import { Router, useRouterHistory } from 'react-router';
+import routes from './routes';
+import store from './store';
+
 
 const history = useRouterHistory(createHistory)({
-  basename: '/'
-})
+  basename: '/',
+});
 
 window.onload = () => {
   ReactDOM.render(

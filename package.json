@@ -15,7 +15,7 @@
     "postbuild": "cp app/index.prod.html dist/index.html",
     "preprod": "npm run build",
     "prod": "NODE_ENV=production BABEL_ENV=production node server.prod.js",
-    "lint": "eslint app",
+    "lint": "eslint --ext .js --ext .jsx app",
     "validate": "npm ls"
   },
   "pre-commit": [
