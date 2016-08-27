@@ -17,8 +17,8 @@
     "validate": "npm ls"
   },
   "pre-commit": [
-    "lint",
-    "validate"
+    "validate",
+    "lint"
   ],
   "dependencies": {
     "babel-runtime": "^6.3.19",
