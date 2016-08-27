@@ -20,6 +20,7 @@ const store = createStore(
 if (module.hot) {
   module.hot.accept('../reducers', () => {
     const nextReducer = require('../reducers/index').default; // eslint-disable-line global-require
+
     store.replaceReducer(nextReducer);
   });
 }
