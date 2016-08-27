@@ -5,9 +5,9 @@
  * CSS files will be outputed as bundles just like the js files
  */
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -40,6 +40,11 @@ module.exports = {
       name: 'vendor',
       minChunks: Infinity,
     }),
+    new HtmlWebpackPlugin({
+      title: 'Webpack-React-Redux',
+      filename: '../index.html',
+      template: './app/index.ejs',
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -59,9 +64,6 @@ module.exports = {
       allChunks: true,
       sourceMap: false,
     }),
-    new CopyWebpackPlugin([
-      // Add files that you would like copied here
-    ]),
   ],
   module: {
     loaders: [

@@ -10,11 +10,9 @@
   "author": "Dylan Vuz",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "NODE_ENV=production BABEL_ENV=production ./node_modules/.bin/webpack --config webpack.config.production.js",
-    "postbuild": "cp app/index.prod.html dist/index.html",
-    "preprod": "npm run build",
-    "prod": "NODE_ENV=production BABEL_ENV=production node server.prod.js",
+    "start": "NODE_ENV=development webpack-dashboard -p 4998 -- node server.js",
+    "start-prod": "NODE_ENV=production node server.prod.js",
+    "build": "NODE_ENV=production BABEL_ENV=production ./node_modules/.bin/webpack --config webpack.config.prod.js",
     "lint": "eslint --ext .js --ext .jsx app",
     "validate": "npm ls"
   },
@@ -41,7 +39,6 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
-    "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^10.0.0",
@@ -50,15 +47,18 @@
     "eslint-plugin-react": "^6.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
     "json-loader": "^0.5.4",
     "node-sass": "^3.8.0",
     "precommit-hook": "^3.0.0",
     "react-transform-hmr": "^1.0.1",
+    "redux-devtools": "^3.3.1",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
+    "webpack-dashboard": "^0.1.8",
     "webpack-dev-server": "^1.14.1"
   }
 }

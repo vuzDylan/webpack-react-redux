@@ -12,6 +12,8 @@ const history = useRouterHistory(createHistory)({
   basename: '/',
 });
 
+if (module.hot) module.hot.accept();
+
 window.onload = () => {
   ReactDOM.render(
     <Provider store={store}>

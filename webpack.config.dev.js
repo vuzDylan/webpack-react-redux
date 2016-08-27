@@ -4,9 +4,9 @@
  * CSS is inlined in the JS to make development faster
  * If adding a new plugin make sure it know the publicPath is /static/
  */
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+var DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
   entry: {
@@ -37,9 +37,10 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new CopyWebpackPlugin([
-      // add files you want copied here
-    ]),
+    new DashboardPlugin({ port: 4998 }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development'),
+    }),
   ],
   module: {
     loaders: [
